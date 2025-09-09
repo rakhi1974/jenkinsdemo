@@ -8,6 +8,13 @@ pipeline {
             }
         }
 
+        stage('Check Docker') {
+            steps {
+                sh 'echo "PATH is: $PATH"'
+                sh 'which docker && docker --version'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t rakhi1974/rakhi-jenkins-image .'
